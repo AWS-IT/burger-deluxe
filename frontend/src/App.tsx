@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { Layout } from '@/components/layout';
 
@@ -9,11 +10,20 @@ import ProfilePage from '@/pages/ProfilePage';
 import OrdersPage from '@/pages/OrdersPage';
 import CheckoutPage from '@/pages/CheckoutPage';
 import AdminPage from '@/pages/AdminPage';
+import PrivacyPage from '@/pages/PrivacyPage';
+import TermsPage from '@/pages/TermsPage';
 
 // Protected Route Component
 import ProtectedRoute from '@/components/auth/ProtectedRoute';
+import { useAuthStore } from '@/store';
 
 function App() {
+  const checkAuth = useAuthStore((state) => state.checkAuth);
+
+  useEffect(() => {
+    checkAuth();
+  }, [checkAuth]);
+
   return (
     <Layout>
       <Routes>
@@ -21,6 +31,8 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/menu" element={<MenuPage />} />
         <Route path="/auth" element={<AuthPage />} />
+        <Route path="/privacy" element={<PrivacyPage />} />
+        <Route path="/terms" element={<TermsPage />} />
 
         {/* Protected User Routes */}
         <Route

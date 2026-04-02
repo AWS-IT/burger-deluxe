@@ -90,7 +90,7 @@ export const register = async (req: Request, res: Response): Promise<void> => {
         name: user.name,
         email: user.email,
         phone: user.phone,
-        role: user.role,
+        role: user.role.toLowerCase(),
         addresses: user.addresses
       },
       token
@@ -171,7 +171,7 @@ export const login = async (req: Request, res: Response): Promise<void> => {
         name: user.name,
         email: user.email,
         phone: user.phone,
-        role: user.role,
+        role: user.role.toLowerCase(),
         addresses: user.addresses
       },
       token
@@ -235,7 +235,7 @@ export const getMe = async (req: any, res: Response): Promise<void> => {
         name: user.name,
         email: user.email,
         phone: user.phone,
-        role: user.role,
+        role: user.role.toLowerCase(),
         addresses: user.addresses,
         avatar: user.avatar
       }

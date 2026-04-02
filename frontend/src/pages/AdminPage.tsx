@@ -259,7 +259,7 @@ const DishesManagement = () => {
     data.append('ingredients', JSON.stringify(formData.ingredients.split(',').map(s => s.trim()).filter(Boolean)));
     data.append('isSpicy', formData.isSpicy.toString());
     data.append('isVegetarian', formData.isVegetarian.toString());
-    data.append('isNewDish', formData.isNewDish.toString());
+    data.append('isNew', formData.isNewDish.toString());
     data.append('isPopular', formData.isPopular.toString());
     data.append('stock', formData.stock.toString());
 
